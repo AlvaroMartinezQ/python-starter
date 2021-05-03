@@ -2,7 +2,7 @@ import requests
 import operator
 
 def main():
-   gitlab_user = "whyorean"
+   gitlab_user = "name of a gitlab user here"
    gitlab_api_url = "https://gitlab.com/api/v4/"
 
    projects_endpoint = f"users/{gitlab_user}/projects"
