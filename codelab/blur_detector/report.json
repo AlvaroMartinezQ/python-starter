@@ -1,0 +1,1 @@
+{"accepted": [{"name": "battlefront.jpg", "score": 973.3544474665183}, {"name": "bad_image.png", "score": 504.3496}], "denied": [{"name": "storm_trooper.jpeg", "score": 149.30461374229984}, {"name": "blurred.jpeg", "score": 160.2104640891335}], "elapsed_time": ["4.069323778152466 seconds"], "total_images": ["4"], "blurred_images": ["2"]}
