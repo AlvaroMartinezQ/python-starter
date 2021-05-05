@@ -11,7 +11,7 @@ from time import sleep
 
 # Location dir: ../../statics/imgs/
 # Trash dir: ../../statics/trash/
-# python3 blur_detector.py -if ../../statics/imgs/ -tf ../../statics/trash/
+# python blur_detector.py -if ../../statics/imgs/ -tf ../../statics/trash/
 
 def blur_detector():
     start_time = time.time()
