@@ -2,6 +2,7 @@
 
 import os, platform
 
+#Local
 import ping_logger
 
 def ping_machine(host, times):
@@ -18,4 +19,4 @@ def ping_machine(host, times):
         return -1
 
 if __name__ == '__main__':
-    ping_machine("www.urjc.es", 5)
+    ping_machine("www.urjc.es", 5) # Replace this URL with any of your choice
