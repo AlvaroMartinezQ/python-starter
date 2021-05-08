@@ -1,4 +1,4 @@
-# Script sends a mail using smtplib and SSL
+# Script sends a mail using smtplib, SSL and gmail SMTP
 
 import smtplib, ssl
 
