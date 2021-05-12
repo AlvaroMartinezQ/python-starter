@@ -13,10 +13,10 @@ def read_properties():
     parser.read('.env')
 
     data = {}
-    data["email"] = parser.get('mail_creds', 'email_host')
-    data["passw"] = parser.get('mail_creds', 'email_password')
-    data["port"] = parser.get('mail_creds', 'email_host_port')
-    print(data)
+    data['email'] = parser.get('mail_creds', 'email_host')
+    data['passw'] = parser.get('mail_creds', 'email_password')
+    data['port'] = parser.get('mail_creds', 'email_host_port')
+    
     return data
 
 if __name__ == '__main__':
