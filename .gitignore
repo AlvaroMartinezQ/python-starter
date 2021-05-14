@@ -2,6 +2,7 @@
 parte3-1-venv/
 /statics
 /codelab/blur_detector/blur_venv
+/codelab/availability_detector/availability_venv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

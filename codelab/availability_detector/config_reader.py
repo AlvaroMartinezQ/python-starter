@@ -16,7 +16,8 @@ def read_properties():
     data['email'] = parser.get('mail_creds', 'email_host')
     data['passw'] = parser.get('mail_creds', 'email_password')
     data['port'] = parser.get('mail_creds', 'email_host_port')
-    
+    data['smtp'] = parser.get('mail_creds', 'smtp_server')
+
     return data
 
 if __name__ == '__main__':

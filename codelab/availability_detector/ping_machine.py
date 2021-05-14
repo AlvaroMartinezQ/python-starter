@@ -14,9 +14,11 @@ def ping_machine(host, times):
         ping_logger.store_logs(status, host, times)
     elif os_name == "Linux":
         status = os.system(f'ping -c {times} { host }')
+        ping_logger.store_logs(status, host, times)
     else:
         print("SO not supported")
         return -1
+    return status
 
 if __name__ == '__main__':
     ping_machine("www.urjc.es", 5) # Replace this URL with any of your choice

@@ -5,22 +5,19 @@ import smtplib, ssl
 # Local
 import config_reader
 
-def send_email():
+def send_email(receiver, subject, text):
     data = config_reader.read_properties()
-    print(data)
 
     port = data['port']
+    smtp_server = data['smtp']
     sender_email = data['email']
     password = data['passw']
-    receiver_email = input("Type your receiver email and press enter: ")
-    message = """\
-        Subject: Hello there
-
-        This is a message send with python."""
+    receiver_email = receiver
+    message = 'Subject: {}\n\n{}'.format(subject, text)
 
     context = ssl.create_default_context()
 
-    with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
+    with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
         server.login(sender_email, password)
         server.sendmail(sender_email, receiver_email, message)
 
