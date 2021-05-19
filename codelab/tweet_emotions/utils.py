@@ -46,11 +46,11 @@ def rm_points_digits(str_in):
         str_out += mod_word
         str_out += ' '
     
-    print(str_out)
+    # print(str_out)
     return str_out
 
 if __name__ == '__main__':
     pass
     # rm_hashtags("good morning how are yall #goodmorning")
     # rm_mentions("hey wasssup man @alvaro")
-    rm_points_digits("this is a test string ok 1234 wow 1233 2323 yes 2..")
+    # rm_points_digits("this is a test string ok 1234 wow 1233 2323 yes 2..")
