@@ -9,9 +9,15 @@
             == 0 then tweet is neutral
     This checks are made consuming the file lex_es.txt
     Note that these expressions are measured in spanish
+
+    Examples:
+        msh> py .\emotions.py -s ./tweetsSamples/N/ -l ./lex/lex_es.txt -r ./report.json
+        msh> py .\emotions.py -s ./tweetsSamples/P/ -l ./lex/lex_es.txt -r ./report.json
+        msh> py .\emotions.py -s ./tweetsSamples/NEU/ -l ./lex/lex_es.txt -r ./report.json
+        msh> py .\emotions.py -s ./tweetsSamples/NONE/ -l ./lex/lex_es.txt -r ./report.json
 """
 
-import argparse, os, re
+import argparse, os, re, json
 
 # Local
 import utils
@@ -45,9 +51,12 @@ def emotions():
         else:
             pass
 
+    total_tweets = 0
     total_words = 0
     total_positive = 0
     total_negative = 0
+    total_neutral = 0
+    total_none = 0
 
     files = os.listdir(src_folder)
     for fil_path in files:
@@ -61,14 +70,44 @@ def emotions():
         words = utils.rm_mentions(words)
 
         words_arr = words.split(" ")
-        for word in words_arr:
-            if word in positive:
-                total_positive += 1
-            elif word in negative:
-                total_negative += 1
-            total_words += 1
 
-    print(f'Scanned a total of {total_words}. {total_positive} were positive, {total_negative} were negative.')
+        score = 0
+        in_lists = False
+        for word in words_arr:
+            total_words += 1
+            if word in positive:
+                score += 1
+                in_lists = True
+            elif word in negative:
+                score -= 1
+                in_lists = True
+        
+        if in_lists:
+            if score < 0:
+                total_negative += 1
+            elif score > 0:
+                total_positive += 1
+            elif score == 0:
+                total_neutral += 0
+        else:
+            total_none += 1
+
+        total_tweets += 1
+
+    print(f"Scanned a total of {total_words} words in {total_tweets} tweets.\n{total_positive} were positive, {total_negative} were negative, {total_neutral} were neutral and {total_none} couldn't be determined.")
+
+    if report_file != None:
+        result = dict()
+        result['path'] = src_folder
+        result['scanned_tweets'] = total_tweets
+        result['scanned_words'] = total_words
+        result['positive'] = total_positive
+        result['negative'] = total_negative
+        result['neutral'] = total_neutral
+        result['undefined'] = total_none
+        
+        with open(report_file, 'w') as outfile:
+            json.dump(result, outfile)
 
 if __name__ == '__main__':
     emotions()
