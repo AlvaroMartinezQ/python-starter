@@ -1,1 +1,1 @@
-Introduction to python programming techniques :zap:
+Introduction to python programming techniques
