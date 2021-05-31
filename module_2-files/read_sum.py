@@ -5,7 +5,6 @@ add = 0
 line = fil.readline()
 while line:
     words = line.split(" ")
-    words.remove
     for word in words:
         # Clean the string
         word = word.replace('.', ' ')
