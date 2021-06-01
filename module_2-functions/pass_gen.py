@@ -4,7 +4,7 @@ def create_password(characters):
     length = len(characters)
     out = ''
 
-    for i in range(length):
+    for _ in range(length):
         out = out + random.choice(characters)
 
     print(f'Genrated password is : {out}')
