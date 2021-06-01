@@ -15,6 +15,9 @@ dic_list = [
         "l_surname": "sanchez",
         "legal_terms_ok": False,
         "account_expired": True
+    },
+    {
+        "name": "nuria"
     }
 ]
 
@@ -23,7 +26,7 @@ dic_list = [
 new_dict = dict()
 
 for value in dic_list:
-    print(value)
+    # print(value)
     new_dict.update(value)
 
 print(new_dict)
